@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/mainBackgroundColor"
+    tools:context=".MainActivity">
+
+
+
+    <!-- 캘린더 화면 -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/create_calendar_cl"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="#ffffff"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/create_calendar_title"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="50dp"
+            android:background="@drawable/round_top_calendar"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="날짜 선택"
+                android:textColor="#000000"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/calendar_view_cl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/create_calendar_title">
+
+            <com.applikeysolutions.cosmocalendar.view.CalendarView
+                android:id="@+id/calendar_view"
+                android:layout_width="match_parent"
+                android:layout_height="500dp"
+                app:connectedDayIconPosition="top"
+                app:currentDayIconRes="@drawable/round_shape_img"
+                app:currentDaySelectedIconRes="@drawable/border_top_bottom"
+                app:currentDayTextColor="@color/appMainColor"
+                app:firstDayOfTheWeek="sunday"
+                app:layout_constraintTop_toTopOf="parent"
+                app:orientation="horizontal"
+                app:selectedDayBackgroundColor="@color/appMainColor"
+                app:selectedDayBackgroundEndColor="@color/appMainColor"
+                app:selectedDayBackgroundStartColor="@color/appMainColor"
+                app:selectedDayTextColor="#FFFFFF"
+                app:selectionType="range"
+                app:weekendDayTextColor="#ef4550" />
+
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/calendar_select_complete_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/calendar_select_complete_btn"
+                android:text="선택 완료하기"
+                android:textColor="#ffffff"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/calendar_view" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <!-- 일정생성 메인 콘텐츠 화면 -->
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/create_content_cl"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/create_top_bar"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="#FFFFFF"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="새로운 일정 생성"
+                android:textColor="#000000"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/create_back_iv"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_margin="7dp"
+                android:rotation="180"
+                android:src="@drawable/btn_arrow_more"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/create_confirm_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="확인"
+                android:textColor="@color/appMainColor"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <View
+            android:id="@+id/create_line_view"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/mainLineColor"
+            app:layout_constraintTop_toBottomOf="@id/create_top_bar" />
+
+
+        <EditText
+            android:id="@+id/create_title_et"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="40dp"
+            android:background="@color/transparent"
+            android:hint="일정 제목"
+            android:textColor="@color/grayColoredText"
+            android:textColorHint="@color/grayColoredText"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/create_line_view"></EditText>
+
+        <EditText
+            android:id="@+id/create_describe_et"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:background="@color/transparent"
+            android:hint="일정 설명"
+            android:textColor="@color/grayColoredText"
+            android:textColorHint="@color/grayColoredText"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@id/create_title_et"
+            app:layout_constraintTop_toBottomOf="@id/create_title_et" />
+
+
+        <View
+            android:id="@+id/create_second_line_view"
+            android:layout_width="match_parent"
+            android:layout_height="4dp"
+            android:layout_marginTop="40dp"
+            android:background="@color/mainLineColor"
+            app:layout_constraintTop_toBottomOf="@id/create_describe_et" />
+
+        <TextView
+            android:id="@+id/create_when_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:text="언제"
+            android:textColor="#000000"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@id/create_title_et"
+            app:layout_constraintTop_toBottomOf="@id/create_second_line_view" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/create_add_date_cv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:background="@color/transparent"
+            android:visibility="visible"
+            app:cardCornerRadius="15dp"
+            app:layout_constraintStart_toStartOf="@id/create_when_tv"
+            app:layout_constraintTop_toBottomOf="@id/create_when_tv">
+
+            <ImageView
+                android:id="@+id/create_add_date_iv"
+                android:layout_width="100dp"
+                android:layout_height="120dp"
+                android:src="@drawable/btn_add_date" />
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/create_selected_date_rv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="15dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintTop_toBottomOf="@id/create_when_tv"
+            tools:listitem="@layout/create_selected_date_rv_item" />
+
+        <View
+            android:id="@+id/create_third_line_view"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/mainLineColor"
+            app:layout_constraintTop_toBottomOf="@id/create_add_date_cv" />
+
+        <TextView
+            android:id="@+id/create_color_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="색상"
+            android:textColor="#000000"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@id/create_when_tv"
+            app:layout_constraintTop_toBottomOf="@id/create_third_line_view" />
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="30dp"
+            android:background="@drawable/select_color_background"
+            android:elevation="5dp"
+            app:layout_constraintTop_toBottomOf="@id/create_color_tv">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/create_color_item_one"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:background="@drawable/color_item_one"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/create_color_item_two"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:background="@drawable/color_item_one"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/create_color_item_three"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/create_color_item_three"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:background="@drawable/color_item_one"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/create_color_item_one"
+                app:layout_constraintStart_toEndOf="@id/create_color_item_two"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/create_color_item_four"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:background="@drawable/color_item_one"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/create_color_item_five"
+                app:layout_constraintStart_toEndOf="@id/create_color_item_one"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/create_color_item_five"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:background="@drawable/color_item_one"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/create_color_item_four"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
